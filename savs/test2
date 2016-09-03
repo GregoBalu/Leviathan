@@ -1,0 +1,70 @@
+1.0.6065.28373
+{
+  "Region": 0,
+  "Segments": [
+    {
+      "ImageName": null,
+      "Content": "[SPECIAL:Battle]",
+      "Special": {
+        "Type": 2,
+        "Enemies": [
+          {
+            "Name": "Human Warrior (1)",
+            "Race": 0,
+            "Class": 0,
+            "BaseStats": {
+              "Health": {
+                "Current": 3,
+                "Max": 3
+              },
+              "Mana": {
+                "Current": 0,
+                "Max": 0
+              },
+              "Experience": {
+                "Level": 3,
+                "LevelUps": 0,
+                "Current": 0,
+                "Max": 100
+              },
+              "Attack": {
+                "Min": 2,
+                "Max": 0
+              },
+              "Defense": {
+                "Min": 0,
+                "Max": 0
+              },
+              "Speed": 0
+            },
+            "Skills": {
+              "UnSpentPoints": 0
+            },
+            "ActiveEffects": [],
+            "Location": {
+              "Region": 0,
+              "SubRegion": 0,
+              "History": {}
+            },
+            "Inventory": {
+              "Items": []
+            },
+            "Equipped": {
+              "Armor": null,
+              "Weapon": null
+            }
+          }
+        ],
+        "Distances": [
+          0
+        ],
+        "VariableName": null,
+        "VariableValue": 0,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": []
+    }
+  ],
+  "Variables": []
+}

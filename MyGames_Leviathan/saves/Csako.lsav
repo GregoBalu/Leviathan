@@ -1,0 +1,48 @@
+1.0.6065.31094
+{
+  "Name": "Csako",
+  "Race": 0,
+  "Class": 0,
+  "BaseStats": {
+    "Health": {
+      "Current": 15,
+      "Max": 15
+    },
+    "Mana": {
+      "Current": 5,
+      "Max": 5
+    },
+    "Experience": {
+      "Level": 1,
+      "LevelUps": 0,
+      "Current": 0,
+      "Max": 100
+    },
+    "Attack": {
+      "Min": 6,
+      "Max": 8
+    },
+    "Defense": {
+      "Min": 7,
+      "Max": 9
+    },
+    "Speed": 6
+  },
+  "Skills": {
+    "UnSpentPoints": 0,
+    "UnlockedSkillIds": []
+  },
+  "ActiveEffects": [],
+  "Location": {
+    "Region": 0,
+    "SubRegion": 0,
+    "History": {}
+  },
+  "Inventory": {
+    "Items": []
+  },
+  "Equipped": {
+    "Armor": null,
+    "Weapon": null
+  }
+}

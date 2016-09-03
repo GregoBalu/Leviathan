@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34A68919-909A-4F6B-ACAC-FD7E8EF02BF1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Leviathan.Model</RootNamespace>
+    <AssemblyName>Leviathan.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CharacterRelated\Character.cs" />
+    <Compile Include="CharacterRelated\BaseBar.cs" />
+    <Compile Include="CharacterRelated\Equipped.cs" />
+    <Compile Include="CharacterRelated\Inventory.cs" />
+    <Compile Include="CharacterRelated\InventoryRelated\ArmorSlot.cs" />
+    <Compile Include="CharacterRelated\InventoryRelated\Armors\Leather.cs" />
+    <Compile Include="CharacterRelated\InventoryRelated\Item.cs" />
+    <Compile Include="CharacterRelated\InventoryRelated\WeaponSlot.cs" />
+    <Compile Include="CharacterRelated\InventoryRelated\Weapons\BronzeSword.cs" />
+    <Compile Include="CharacterRelated\LocationManager.cs" />
+    <Compile Include="CharacterRelated\ProfessionManager.cs" />
+    <Compile Include="CharacterRelated\Race.cs" />
+    <Compile Include="CharacterRelated\SkillRelated\Skills\Warrior\Skill2.cs" />
+    <Compile Include="CharacterRelated\SkillRelated\Skills\Warrior\Skill1.cs" />
+    <Compile Include="CharacterRelated\SkillRelated\Skills\Warrior\WarriorResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WarriorResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CharacterRelated\SkillRelated\SkillTree.cs" />
+    <Compile Include="CharacterRelated\StatRelated\Experience.cs" />
+    <Compile Include="CharacterRelated\Location.cs" />
+    <Compile Include="CharacterRelated\StatRelated\Mana.cs" />
+    <Compile Include="CharacterRelated\StatRelated\Health.cs" />
+    <Compile Include="CharacterRelated\Profession.cs" />
+    <Compile Include="CharacterRelated\StatRelated\Range.cs" />
+    <Compile Include="CharacterRelated\StatRelated\StatManager.cs" />
+    <Compile Include="Exceptions\MissingResourceException.cs" />
+    <Compile Include="Exceptions\SerializationException.cs" />
+    <Compile Include="MapRelated\Condition.cs" />
+    <Compile Include="MapRelated\Conversation.cs" />
+    <Compile Include="MapRelated\Map.cs" />
+    <Compile Include="MapRelated\MoveOption.cs" />
+    <Compile Include="MapRelated\ConditionRelated\Operator.cs" />
+    <Compile Include="MapRelated\Region.cs" />
+    <Compile Include="CharacterRelated\Skills.cs" />
+    <Compile Include="CharacterRelated\SkillRelated\Skill.cs" />
+    <Compile Include="CharacterRelated\Stats.cs" />
+    <Compile Include="MapRelated\RegionManager.cs" />
+    <Compile Include="MapRelated\Segment.cs" />
+    <Compile Include="MapRelated\Pair.cs" />
+    <Compile Include="MapRelated\Special.cs" />
+    <Compile Include="MapRelated\Specials\SpecialType.cs" />
+    <Compile Include="MapRelated\VariableTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CharacterRelated\RaceManager.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CharacterRelated\SkillRelated\Skills\Warrior\WarriorResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WarriorResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Leviathan.FileHandler\Leviathan.FileHandler.csproj">
+      <Project>{b9c6f959-0fd5-46e1-b6d6-aa0cb5254828}</Project>
+      <Name>Leviathan.FileHandler</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

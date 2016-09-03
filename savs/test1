@@ -1,0 +1,94 @@
+1.0.6065.26800
+{
+  "Region": 0,
+  "Segments": [
+    {
+      "ImageName": null,
+      "Content": "asd",
+      "Special": {
+        "Type": 0,
+        "Enemies": null,
+        "Distances": null,
+        "VariableName": null,
+        "VariableValue": 0,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": [
+        {
+          "Condition": {
+            "Variable": "",
+            "Operator": 0,
+            "Value": 0
+          },
+          "Content": "elso",
+          "ToId": 1
+        },
+        {
+          "Condition": {
+            "Variable": "",
+            "Operator": 0,
+            "Value": 0
+          },
+          "Content": "masodik",
+          "ToId": 2
+        }
+      ]
+    },
+    {
+      "ImageName": null,
+      "Content": "ennyi",
+      "Special": {
+        "Type": 0,
+        "Enemies": null,
+        "Distances": null,
+        "VariableName": null,
+        "VariableValue": 0,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": []
+    },
+    {
+      "ImageName": null,
+      "Content": "",
+      "Special": {
+        "Type": 1,
+        "Enemies": null,
+        "Distances": null,
+        "VariableName": "test1var",
+        "VariableValue": 1,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": [
+        {
+          "Condition": {
+            "Variable": "",
+            "Operator": 0,
+            "Value": 0
+          },
+          "Content": "idekelltovamenni",
+          "ToId": 3
+        }
+      ]
+    },
+    {
+      "ImageName": null,
+      "Content": "vege",
+      "Special": {
+        "Type": 0,
+        "Enemies": null,
+        "Distances": null,
+        "VariableName": null,
+        "VariableValue": 0,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": []
+    }
+  ],
+  "Variables": [
+    "test1var"
+  ]
+}

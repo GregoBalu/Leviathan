@@ -1,0 +1,68 @@
+1.0.6065.31869
+{
+  "Region": 0,
+  "Segments": [
+    {
+      "ImageName": null,
+      "Content": "HumanStart",
+      "Special": {
+        "Type": 0,
+        "Enemies": null,
+        "Distances": null,
+        "VariableName": null,
+        "VariableValue": 0,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": [
+        {
+          "Condition": {
+            "Variable": "",
+            "Operator": 0,
+            "Value": 0
+          },
+          "Content": "To north",
+          "ToId": 1
+        },
+        {
+          "Condition": {
+            "Variable": "",
+            "Operator": 0,
+            "Value": 0
+          },
+          "Content": "To east",
+          "ToId": 2
+        }
+      ]
+    },
+    {
+      "ImageName": null,
+      "Content": "North.",
+      "Special": {
+        "Type": 0,
+        "Enemies": null,
+        "Distances": null,
+        "VariableName": null,
+        "VariableValue": 0,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": []
+    },
+    {
+      "ImageName": null,
+      "Content": "East.",
+      "Special": {
+        "Type": 0,
+        "Enemies": null,
+        "Distances": null,
+        "VariableName": null,
+        "VariableValue": 0,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": []
+    }
+  ],
+  "Variables": []
+}

@@ -1,0 +1,56 @@
+1.0.6074.24733
+{
+  "Warrior": {
+    "Start": {
+      "Health": {
+        "Current": 5,
+        "Max": 5
+      },
+      "Mana": {
+        "Current": 0,
+        "Max": 0
+      },
+      "Experience": {
+        "Level": 1,
+        "LevelUps": 0,
+        "Current": 0,
+        "Max": 100
+      },
+      "Attack": {
+        "Min": 3,
+        "Max": 3
+      },
+      "Defense": {
+        "Min": 3,
+        "Max": 3
+      },
+      "Speed": 0
+    },
+    "LevelUp": {
+      "Health": {
+        "Current": 1,
+        "Max": 1
+      },
+      "Mana": {
+        "Current": 0,
+        "Max": 0
+      },
+      "Experience": {
+        "Level": 1,
+        "LevelUps": 0,
+        "Current": 0,
+        "Max": 100
+      },
+      "Attack": {
+        "Min": 0,
+        "Max": 0
+      },
+      "Defense": {
+        "Min": 0,
+        "Max": 0
+      },
+      "Speed": 0
+    },
+    "SkillTree": []
+  }
+}

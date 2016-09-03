@@ -1,0 +1,105 @@
+﻿<Window x:Class="Leviathan.View.Views.InventoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prop="clr-namespace:Leviathan.View.Properties"
+        Title="Inventory" 
+        MinHeight="250" Height="300" MaxHeight="500"
+        MinWidth="300" Width="350" MaxWidth="500" >
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ContentControl Grid.Row="0">
+                <ContentControl.InputBindings>
+                    <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding Weapon.SelectedCommand}" />
+                </ContentControl.InputBindings>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="1"
+                                   Text="{Binding Weapon.Name, FallbackValue=WeaponSlot}" />
+                    <Image Grid.Row="0" Grid.Column="0" 
+                               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                               Width="50" Height="50" 
+                               Source="{Binding Weapon.ImageName, FallbackValue={x:Static prop:Resources.NoImage}}" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                   Text="{Binding Weapon.Stats, FallbackValue=None}" />
+                </Grid>
+            </ContentControl>
+
+            <ContentControl Grid.Row="1">
+                <ContentControl.InputBindings>
+                    <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding Armor.SelectedCommand}" />
+                </ContentControl.InputBindings>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="1"
+                                       Text="{Binding Armor.Name, FallbackValue=ArmorSlot}" />
+                    <Image Grid.Row="0" Grid.Column="0" 
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                   Width="50" Height="50" 
+                                   Source="{Binding Armor.ImageName, FallbackValue={x:Static prop:Resources.NoImage}}" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                       Text="{Binding Armor.Stats, FallbackValue=None}" />
+                </Grid>
+            </ContentControl>
+        </Grid>
+        
+        <ListView Grid.Column="1" ItemsSource="{Binding Items}" 
+                  ScrollViewer.CanContentScroll="True" >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl >
+                        <ContentControl.InputBindings>
+                            <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding SelectedCommand}" />
+                        </ContentControl.InputBindings>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                        
+                            <TextBlock Grid.Row="0" Grid.Column="1"
+                                       Text="{Binding Name, FallbackValue=NAME}" />
+                            <Image Grid.Row="0" Grid.Column="0" 
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                   Width="50" Height="50" 
+                                   Source="{Binding ImageName, FallbackValue={x:Static prop:Resources.NoImage}}" />
+                            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                       Text="{Binding Stats, FallbackValue=None}" />
+                        </Grid>
+                    </ContentControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</Window>

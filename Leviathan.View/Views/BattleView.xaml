@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="Leviathan.View.Views.BattleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Buttons.xaml" />
+                <ResourceDictionary Source="../Styles/TextBlocks.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource InfoTextBlock}"
+                   Text="{Binding Battle_MyHealth}" />
+        <Label Grid.Row="1" Grid.Column="1" Content="Health:" 
+               Padding="0,0,0,0" Margin="5,5,5,5"
+               VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource InfoTextBlock}"
+                   Text="{Binding Battle_MyMana}" />
+        <Label Grid.Row="2" Grid.Column="1" Content="Mana:" 
+               Padding="0,0,0,0" Margin="5,5,5,5"
+               VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource InfoTextBlock}"
+                   Text="{Binding Battle_EnemyHealth}" />
+        <Label Grid.Row="1" Grid.Column="2" Content="Target Health:" 
+               Padding="0,0,0,0" Margin="5,5,5,5"
+               VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource InfoTextBlock}"
+                   Text="{Binding Battle_EnemyMana}" />
+        <Label Grid.Row="2" Grid.Column="2" Content="Target Mana:" 
+               Padding="0,0,0,0" Margin="5,5,5,5"
+               VerticalAlignment="Top" HorizontalAlignment="Left" />
+        
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <Button Grid.Row="0" Style="{StaticResource GameButton}"
+                    Width="90" Height="30"
+                    Content="Select Skill" Command="{Binding Battle_SelectSkill}" />
+            <Button Grid.Row="1" Style="{StaticResource GameButton}"
+                    Width="90" Height="30"
+                    Content="Select Target" Command="{Binding Battle_SelectTarget}"
+                    IsEnabled="{Binding Battle_IsTargetNotSelected}"/>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Style="{StaticResource InfoTextBlock}"
+                   Text="{Binding Battle_EnemyDistance}" />
+            <Label Grid.Row="0" Content="Target Distance:" 
+               Padding="0,0,0,0" Margin="5,5,5,5"
+               VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <Button Grid.Row="1" Style="{StaticResource GameButton}"
+                Width="90" Height="30" IsEnabled="{Binding Battle_IsTargetSelected}"
+                Content="Enemy Info" Command="{Binding Battle_ViewEnemy}" />
+        </Grid>
+        
+        <ProgressBar Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"
+                     Height="10" Margin="5,5,5,5"
+                     Minimum="0" Maximum="{Binding Battle_EnemyCount}" 
+                     Value="{Binding Battle_KilledEnemies}" />
+        
+        <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"
+                   Style="{StaticResource BackgroundedGameTextBlock}"
+                   Text="{Binding Battle_Content}" />
+        
+    </Grid>
+</UserControl>

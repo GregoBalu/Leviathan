@@ -1,0 +1,166 @@
+1.0.6072.37054
+{
+  "Human": {
+    "Start": {
+      "Health": {
+        "Current": 10,
+        "Max": 10
+      },
+      "Mana": {
+        "Current": 5,
+        "Max": 5
+      },
+      "Experience": {
+        "Level": 1,
+        "LevelUps": 0,
+        "Current": 0,
+        "Max": 100
+      },
+      "Attack": {
+        "Min": 3,
+        "Max": 5
+      },
+      "Defense": {
+        "Min": 4,
+        "Max": 6
+      },
+      "Speed": 5
+    },
+    "LevelUp": {
+      "Health": {
+        "Current": 1,
+        "Max": 2
+      },
+      "Mana": {
+        "Current": 0,
+        "Max": 2
+      },
+      "Experience": {
+        "Level": 1,
+        "LevelUps": 0,
+        "Current": 0,
+        "Max": 100
+      },
+      "Attack": {
+        "Min": 0,
+        "Max": 2
+      },
+      "Defense": {
+        "Min": 0,
+        "Max": 3
+      },
+      "Speed": 2
+    },
+    "StartZones": [
+      "Human1Start"
+    ]
+  },
+  "Orc": {
+    "Start": {
+      "Health": {
+        "Current": 15,
+        "Max": 15
+      },
+      "Mana": {
+        "Current": 2,
+        "Max": 2
+      },
+      "Experience": {
+        "Level": 1,
+        "LevelUps": 0,
+        "Current": 0,
+        "Max": 100
+      },
+      "Attack": {
+        "Min": 5,
+        "Max": 6
+      },
+      "Defense": {
+        "Min": 2,
+        "Max": 4
+      },
+      "Speed": 3
+    },
+    "LevelUp": {
+      "Health": {
+        "Current": 1,
+        "Max": 3
+      },
+      "Mana": {
+        "Current": 0,
+        "Max": 1
+      },
+      "Experience": {
+        "Level": 1,
+        "LevelUps": 0,
+        "Current": 0,
+        "Max": 100
+      },
+      "Attack": {
+        "Min": 0,
+        "Max": 3
+      },
+      "Defense": {
+        "Min": 0,
+        "Max": 2
+      },
+      "Speed": 1
+    },
+    "StartZones": [
+      "Orc1Start"
+    ]
+  },
+  "asd": {
+    "Start": {
+      "Health": {
+        "Current": 5,
+        "Max": 5
+      },
+      "Mana": {
+        "Current": 1,
+        "Max": 1
+      },
+      "Experience": {
+        "Level": 1,
+        "LevelUps": 0,
+        "Current": 0,
+        "Max": 100
+      },
+      "Attack": {
+        "Min": 1,
+        "Max": 1
+      },
+      "Defense": {
+        "Min": 1,
+        "Max": 1
+      },
+      "Speed": 1
+    },
+    "LevelUp": {
+      "Health": {
+        "Current": 1,
+        "Max": 1
+      },
+      "Mana": {
+        "Current": 0,
+        "Max": 1
+      },
+      "Experience": {
+        "Level": 1,
+        "LevelUps": 0,
+        "Current": 0,
+        "Max": 100
+      },
+      "Attack": {
+        "Min": 1,
+        "Max": 1
+      },
+      "Defense": {
+        "Min": 1,
+        "Max": 1
+      },
+      "Speed": 1
+    },
+    "StartZones": []
+  }
+}

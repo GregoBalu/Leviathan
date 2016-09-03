@@ -1,0 +1,71 @@
+1.0.6069.25264
+{
+  "Region": null,
+  "Segments": [
+    {
+      "ImageName": null,
+      "Content": "asd",
+      "Special": {
+        "NewRegionName": null,
+        "Type": 0,
+        "Enemies": null,
+        "Distances": null,
+        "VariableName": null,
+        "VariableValue": 0,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": [
+        {
+          "Condition": {
+            "Variable": "",
+            "Operator": 0,
+            "Value": 0
+          },
+          "Content": "a",
+          "ToId": 1
+        },
+        {
+          "Condition": {
+            "Variable": "",
+            "Operator": 0,
+            "Value": 0
+          },
+          "Content": "b",
+          "ToId": 2
+        }
+      ]
+    },
+    {
+      "ImageName": null,
+      "Content": "qwe",
+      "Special": {
+        "NewRegionName": null,
+        "Type": 0,
+        "Enemies": null,
+        "Distances": null,
+        "VariableName": null,
+        "VariableValue": 0,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": []
+    },
+    {
+      "ImageName": null,
+      "Content": "ertzhgbvc",
+      "Special": {
+        "NewRegionName": null,
+        "Type": 0,
+        "Enemies": null,
+        "Distances": null,
+        "VariableName": null,
+        "VariableValue": 0,
+        "ExperienceAmount": 0,
+        "ItemToGet": null
+      },
+      "Options": []
+    }
+  ],
+  "Variables": []
+}
