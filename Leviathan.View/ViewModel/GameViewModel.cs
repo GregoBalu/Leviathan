@@ -448,13 +448,13 @@ namespace Leviathan.View.ViewModel
                 return;
             }
 
-            if(_player.TotalStats.Mana.Current < sk.ManaCost())
+            if(_player.TotalStats.Mana.Current < sk.ManaCost)
             {
                 OnShowMessage("You need more mana to cast that!");
                 return;
             }
 
-            if (_map.Current.Special.Distances[_target] > sk.Range())
+            if (_map.Current.Special.Distances[_target] > sk.Range)
             {
                 Battle_Content += "You run closer to your target and your enemies." + Environment.NewLine;
                 OnPropertyChanged("Battle_Content");
@@ -482,20 +482,21 @@ namespace Leviathan.View.ViewModel
                 return;
             }
 
-            _player.BaseStats.Mana.Consume(sk.ManaCost());
-            _player.Skills.SkillTree.Find(skill => skill == sk).IsOnCooldown = _player.Skills.SkillTree.Find(skill => skill == sk).Cooldown();
+            _player.BaseStats.Mana.Consume(sk.ManaCost);
+            _player.Skills.SkillTree.Find(skill => skill == sk).IsOnCooldown = 
+                _player.Skills.SkillTree.Find(skill => skill == sk).Cooldown;
             _player.ActiveEffects.Add(sk);
 
             //Add skill stats
 
-            _player.BaseStats.Attack += sk.AdditionalAttack();
-            _player.BaseStats.Defense += sk.AdditionalDefense();
-            _player.BaseStats.Health.Increase(sk.AdditionalHealth());
-            _player.BaseStats.Health.Heal(sk.Heal());
-            _player.BaseStats.Mana.Increase(sk.AdditionalMana());
-            _player.BaseStats.Mana.Regen(sk.Recover());
-            _player.BaseStats.Speed += sk.AdditionalSpeed();
-            Battle_Content += sk.UseMessage() + Environment.NewLine;
+            _player.BaseStats.Attack += sk.AdditionalAttack;
+            _player.BaseStats.Defense += sk.AdditionalDefense;
+            _player.BaseStats.Health.Increase(sk.AdditionalHealth);
+            _player.BaseStats.Health.Heal(sk.Heal);
+            _player.BaseStats.Mana.Increase(sk.AdditionalMana);
+            _player.BaseStats.Mana.Regen(sk.Recover);
+            _player.BaseStats.Speed += sk.AdditionalSpeed;
+            Battle_Content += sk.UseMessage + Environment.NewLine;
             OnPropertyChanged("Battle_Content");
 
             //DO damage
@@ -548,31 +549,34 @@ namespace Leviathan.View.ViewModel
             Model.CharacterRelated.SkillRelated.Skill sk = 
                 _map.Current.Special.Enemies[t].ChooseSkill(_player);
 
-            if (_map.Current.Special.Distances[t] > sk.Range())
+            if (_map.Current.Special.Distances[t] > sk.Range)
             {
-                Battle_Content += _map.Current.Special.Enemies[t].Name + " comes closer to you." + Environment.NewLine;
+                Battle_Content += _map.Current.Special.Enemies[t].Name + 
+                    " comes closer to you." + Environment.NewLine;
                 OnPropertyChanged("Battle_Content");
-                _map.Current.Special.Distances[t] -= _map.Current.Special.Enemies[t].TotalStats.Speed;
+                _map.Current.Special.Distances[t] -= 
+                    _map.Current.Special.Enemies[t].TotalStats.Speed;
                 if (_map.Current.Special.Distances[t] < 0)
                     _map.Current.Special.Distances[t] = 0;
                 OnPropertyChanged("Battle_EnemyDistance");
                 return;
             }
 
-            _map.Current.Special.Enemies[t].BaseStats.Mana.Consume(sk.ManaCost());
-            _map.Current.Special.Enemies[t].Skills.SkillTree.Find(skill => skill == sk).IsOnCooldown = _map.Current.Special.Enemies[t].Skills.SkillTree.Find(skill => skill == sk).Cooldown();
+            _map.Current.Special.Enemies[t].BaseStats.Mana.Consume(sk.ManaCost);
+            _map.Current.Special.Enemies[t].Skills.SkillTree.Find(skill => skill == sk).IsOnCooldown = 
+                _map.Current.Special.Enemies[t].Skills.SkillTree.Find(skill => skill == sk).Cooldown;
             _map.Current.Special.Enemies[t].ActiveEffects.Add(sk);
 
             //Add skill stats
 
-            _map.Current.Special.Enemies[t].BaseStats.Attack += sk.AdditionalAttack();
-            _map.Current.Special.Enemies[t].BaseStats.Defense += sk.AdditionalDefense();
-            _map.Current.Special.Enemies[t].BaseStats.Health.Increase(sk.AdditionalHealth());
-            _map.Current.Special.Enemies[t].BaseStats.Health.Heal(sk.Heal());
-            _map.Current.Special.Enemies[t].BaseStats.Mana.Increase(sk.AdditionalMana());
-            _map.Current.Special.Enemies[t].BaseStats.Mana.Regen(sk.Recover());
-            _map.Current.Special.Enemies[t].BaseStats.Speed += sk.AdditionalSpeed();
-            Battle_Content += "Enemy: " + sk.UseMessage() + Environment.NewLine;
+            _map.Current.Special.Enemies[t].BaseStats.Attack += sk.AdditionalAttack;
+            _map.Current.Special.Enemies[t].BaseStats.Defense += sk.AdditionalDefense;
+            _map.Current.Special.Enemies[t].BaseStats.Health.Increase(sk.AdditionalHealth);
+            _map.Current.Special.Enemies[t].BaseStats.Health.Heal(sk.Heal);
+            _map.Current.Special.Enemies[t].BaseStats.Mana.Increase(sk.AdditionalMana);
+            _map.Current.Special.Enemies[t].BaseStats.Mana.Regen(sk.Recover);
+            _map.Current.Special.Enemies[t].BaseStats.Speed += sk.AdditionalSpeed;
+            Battle_Content += "Enemy: " + sk.UseMessage + Environment.NewLine;
             OnPropertyChanged("Battle_Content");
 
             //DO damage
@@ -611,11 +615,11 @@ namespace Leviathan.View.ViewModel
                     {
                         _player.ActiveEffects.RemoveAt(i);
                         //remove buffs
-                        _player.BaseStats.Attack -= skill.AdditionalAttack();
-                        _player.BaseStats.Defense -= skill.AdditionalDefense();
-                        _player.BaseStats.Health.Decrease(skill.AdditionalHealth());
-                        _player.BaseStats.Mana.Decrease(skill.AdditionalMana());
-                        _player.BaseStats.Speed -= skill.AdditionalSpeed();
+                        _player.BaseStats.Attack -= skill.AdditionalAttack;
+                        _player.BaseStats.Defense -= skill.AdditionalDefense;
+                        _player.BaseStats.Health.Decrease(skill.AdditionalHealth);
+                        _player.BaseStats.Mana.Decrease(skill.AdditionalMana);
+                        _player.BaseStats.Speed -= skill.AdditionalSpeed;
                         _player.ActiveEffects.RemoveAt(i);
                         OnChangePlayer();
                     }
@@ -635,11 +639,11 @@ namespace Leviathan.View.ViewModel
                     {
                         _map.Current.Special.Enemies[_target].ActiveEffects.RemoveAt(i);
                         //remove buffs
-                        _map.Current.Special.Enemies[_target].BaseStats.Attack -= skill.AdditionalAttack();
-                        _map.Current.Special.Enemies[_target].BaseStats.Defense -= skill.AdditionalDefense();
-                        _map.Current.Special.Enemies[_target].BaseStats.Health.Decrease(skill.AdditionalHealth());
-                        _map.Current.Special.Enemies[_target].BaseStats.Mana.Decrease(skill.AdditionalMana());
-                        _map.Current.Special.Enemies[_target].BaseStats.Speed -= skill.AdditionalSpeed();
+                        _map.Current.Special.Enemies[_target].BaseStats.Attack -= skill.AdditionalAttack;
+                        _map.Current.Special.Enemies[_target].BaseStats.Defense -= skill.AdditionalDefense;
+                        _map.Current.Special.Enemies[_target].BaseStats.Health.Decrease(skill.AdditionalHealth);
+                        _map.Current.Special.Enemies[_target].BaseStats.Mana.Decrease(skill.AdditionalMana);
+                        _map.Current.Special.Enemies[_target].BaseStats.Speed -= skill.AdditionalSpeed;
                         _map.Current.Special.Enemies[_target].ActiveEffects.RemoveAt(i);
                         OnChangeEnemy();
                     }

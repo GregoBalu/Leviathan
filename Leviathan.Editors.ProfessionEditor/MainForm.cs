@@ -52,7 +52,7 @@ namespace Leviathan.Editors.ProfessionEditor
             SkillListBox.Items.Clear();
             foreach(Model.CharacterRelated.SkillRelated.Skill sk in pi.SkillTree)
             {
-                SkillListBox.Items.Add(sk.DisplayName());
+                SkillListBox.Items.Add(sk.DisplayName);
             }
         }
 
@@ -97,7 +97,32 @@ namespace Leviathan.Editors.ProfessionEditor
 
         private void AddSkillButton_Click(object sender, EventArgs e)
         {
-            //TODO
+            Model.CharacterRelated.ProfessionManager.ProfessionInfo ri =
+                Model.CharacterRelated.ProfessionManager.Professions[(String)ProfessionListBox.SelectedItem];
+            ri.SkillTree.Add(new Model.CharacterRelated.SkillRelated.Skill());
+            SkillListBox.Items.Add("NEW");
+            SkillListBox.SelectedIndex = SkillListBox.Items.Count - 1;
+
+            SetupSkillEditor();
+        }
+
+        private void SkillListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            SetupSkillEditor();
+        }
+
+        private void SetupSkillEditor()
+        {
+            if (SkillListBox.SelectedIndex >= 0 &&
+                SkillListBox.SelectedIndex < SkillListBox.Items.Count)
+            {
+                Model.CharacterRelated.ProfessionManager.ProfessionInfo ri =
+                    Model.CharacterRelated.ProfessionManager.Professions[(String)ProfessionListBox.SelectedItem];
+
+                SkillEditorForm sef = new SkillEditorForm(ri.SkillTree[SkillListBox.SelectedIndex]);
+
+                //TODO
+            }
         }
 
         private void RemoveSkillButton_Click(object sender, EventArgs e)
@@ -123,7 +148,8 @@ namespace Leviathan.Editors.ProfessionEditor
 
         private void Stats_ValueChanged(object sender, EventArgs e)
         {
-            Model.CharacterRelated.ProfessionManager.ProfessionInfo ri = Model.CharacterRelated.ProfessionManager.Professions[(String)ProfessionListBox.SelectedItem];
+            Model.CharacterRelated.ProfessionManager.ProfessionInfo ri = 
+                Model.CharacterRelated.ProfessionManager.Professions[(String)ProfessionListBox.SelectedItem];
 
             ri.Start.Health.Current = ri.Start.Health.Max = Convert.ToInt32(HealthSetter.Value);
             ri.Start.Mana.Current = ri.Start.Mana.Max = Convert.ToInt32(ManaSetter.Value);
@@ -186,12 +212,35 @@ namespace Leviathan.Editors.ProfessionEditor
 
         private void UpSkillButton_Click(object sender, EventArgs e)
         {
-
+            SwapSkills(-1);
         }
 
         private void DownSkillButton_Click(object sender, EventArgs e)
         {
-
+            SwapSkills(1);
         }
+
+        private Boolean SwapSkills(int mod)
+        {
+            Model.CharacterRelated.ProfessionManager.ProfessionInfo ri =
+                Model.CharacterRelated.ProfessionManager.Professions[(String)ProfessionListBox.SelectedItem];
+
+            if (SkillListBox.SelectedIndex >= 0 &&
+                SkillListBox.SelectedIndex + mod >= 0 && 
+                SkillListBox.SelectedIndex < ri.SkillTree.Count &&
+                SkillListBox.SelectedIndex + mod < ri.SkillTree.Count)
+            {
+                int i = SkillListBox.SelectedIndex;
+
+                Model.CharacterRelated.SkillRelated.Skill temp = ri.SkillTree[i + mod];
+                ri.SkillTree[i + mod] = ri.SkillTree[i];
+                ri.SkillTree[i] = temp;
+
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }

@@ -33,6 +33,13 @@ namespace Leviathan.View.ViewModel
             }
         }
 
+        public event EventHandler<Boolean> LearnedSkill;
+        private void OnLearnedSkill(Boolean val)
+        {
+            if (LearnedSkill != null)
+                LearnedSkill(this, val);
+        }
+
         #endregion
 
         #region Ctors
@@ -47,12 +54,19 @@ namespace Leviathan.View.ViewModel
             {
                 Items.Add(new Fields.SkillField
                     {
-                        Name = sk.SkillTree[i].DisplayName(),
+                        Name = sk.SkillTree[i].DisplayName,
                         ImageName = "",
-                        LevelRequired = "lvl " + sk.SkillTree[i].LevelRequired().ToString(),
-                        IsLearnable = !sk.UnlockedSkillIds.Contains(i) && sk.SkillTree[i].LevelRequired() <= _level && sk.UnSpentPoints > 0,
-                        Tooltip = sk.SkillTree[i].ToolTip(),
-                        LearnCommand = new DelegateCommand(x => LearnSkill(sk.SkillTree[i])),
+                        LevelRequired = "lvl " + sk.SkillTree[i].LevelRequired.ToString(),
+                        IsLearnable = !sk.SkillTree[i].IsUnlocked && 
+                            sk.SkillTree[i].LevelRequired <= _level && sk.UnSpentPoints > 0,
+                        Tooltip = sk.SkillTree[i].ToolTip,
+                        LearnCommand = new DelegateCommand(x =>
+                        {
+                            if (LearnSkill(sk.SkillTree[i]))
+                                OnLearnedSkill(true);
+                            else
+                                OnLearnedSkill(false);
+                        }),
                         SelectedCommand = new DelegateCommand(x => OnSelectedSkill(sk.SkillTree[i]))
                     });
             }
@@ -63,19 +77,21 @@ namespace Leviathan.View.ViewModel
 
         #region Private Methods
 
-        private void LearnSkill(Model.CharacterRelated.SkillRelated.Skill sk)
+        private bool LearnSkill(Model.CharacterRelated.SkillRelated.Skill sk)
         {
-            Int32 id = Skills.SkillTree.FindIndex(x => x == sk);
+            Int32 ind = Skills.SkillTree.FindIndex(x => x == sk);
 
-            if(!Skills.UnlockedSkillIds.Contains(id) && 
-                Skills.SkillTree[id].LevelRequired() <= _level && 
+            if(!Skills.SkillTree[ind].IsUnlocked && 
+                Skills.SkillTree[ind].LevelRequired <= _level && 
                 Skills.UnSpentPoints > 0)
             {
-                Skills.UnlockedSkillIds.Add(id);
+                Skills.SkillTree[ind].IsUnlocked = true;
                 --Skills.UnSpentPoints;
-                //TODO
+
+                return true;
             }
-            //TODO
+
+            return false;
         }
 
         #endregion

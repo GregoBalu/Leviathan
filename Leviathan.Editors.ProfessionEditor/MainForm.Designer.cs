@@ -35,6 +35,8 @@
             this.RemoveProfessionButton = new System.Windows.Forms.Button();
             this.PropertiesGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.UpSkillButton = new System.Windows.Forms.Button();
+            this.DownSkillButton = new System.Windows.Forms.Button();
             this.RemoveSkillButton = new System.Windows.Forms.Button();
             this.AddSkillButton = new System.Windows.Forms.Button();
             this.SkillListBox = new System.Windows.Forms.ListBox();
@@ -69,8 +71,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.HealthSetter = new System.Windows.Forms.NumericUpDown();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.DownSkillButton = new System.Windows.Forms.Button();
-            this.UpSkillButton = new System.Windows.Forms.Button();
             this.PropertiesGroupBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -159,7 +159,29 @@
             this.groupBox3.Size = new System.Drawing.Size(148, 237);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Starting Zones";
+            this.groupBox3.Text = "Skills:";
+            // 
+            // UpSkillButton
+            // 
+            this.UpSkillButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpSkillButton.Location = new System.Drawing.Point(112, 198);
+            this.UpSkillButton.Name = "UpSkillButton";
+            this.UpSkillButton.Size = new System.Drawing.Size(30, 30);
+            this.UpSkillButton.TabIndex = 6;
+            this.UpSkillButton.Text = "/\\";
+            this.UpSkillButton.UseVisualStyleBackColor = true;
+            this.UpSkillButton.Click += new System.EventHandler(this.UpSkillButton_Click);
+            // 
+            // DownSkillButton
+            // 
+            this.DownSkillButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DownSkillButton.Location = new System.Drawing.Point(76, 198);
+            this.DownSkillButton.Name = "DownSkillButton";
+            this.DownSkillButton.Size = new System.Drawing.Size(30, 30);
+            this.DownSkillButton.TabIndex = 5;
+            this.DownSkillButton.Text = "\\/";
+            this.DownSkillButton.UseVisualStyleBackColor = true;
+            this.DownSkillButton.Click += new System.EventHandler(this.DownSkillButton_Click);
             // 
             // RemoveSkillButton
             // 
@@ -190,6 +212,7 @@
             this.SkillListBox.Name = "SkillListBox";
             this.SkillListBox.Size = new System.Drawing.Size(136, 173);
             this.SkillListBox.TabIndex = 0;
+            this.SkillListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.SkillListBox_MouseDoubleClick);
             // 
             // groupBox2
             // 
@@ -639,28 +662,6 @@
             // ErrorProvider
             // 
             this.ErrorProvider.ContainerControl = this;
-            // 
-            // DownSkillButton
-            // 
-            this.DownSkillButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DownSkillButton.Location = new System.Drawing.Point(76, 198);
-            this.DownSkillButton.Name = "DownSkillButton";
-            this.DownSkillButton.Size = new System.Drawing.Size(30, 30);
-            this.DownSkillButton.TabIndex = 5;
-            this.DownSkillButton.Text = "\\/";
-            this.DownSkillButton.UseVisualStyleBackColor = true;
-            this.DownSkillButton.Click += new System.EventHandler(this.DownSkillButton_Click);
-            // 
-            // UpSkillButton
-            // 
-            this.UpSkillButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpSkillButton.Location = new System.Drawing.Point(112, 198);
-            this.UpSkillButton.Name = "UpSkillButton";
-            this.UpSkillButton.Size = new System.Drawing.Size(30, 30);
-            this.UpSkillButton.TabIndex = 6;
-            this.UpSkillButton.Text = "/\\";
-            this.UpSkillButton.UseVisualStyleBackColor = true;
-            this.UpSkillButton.Click += new System.EventHandler(this.UpSkillButton_Click);
             // 
             // MainForm
             // 

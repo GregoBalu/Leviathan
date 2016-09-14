@@ -57,13 +57,6 @@
     <Compile Include="CharacterRelated\LocationManager.cs" />
     <Compile Include="CharacterRelated\ProfessionManager.cs" />
     <Compile Include="CharacterRelated\Race.cs" />
-    <Compile Include="CharacterRelated\SkillRelated\Skills\Warrior\Skill2.cs" />
-    <Compile Include="CharacterRelated\SkillRelated\Skills\Warrior\Skill1.cs" />
-    <Compile Include="CharacterRelated\SkillRelated\Skills\Warrior\WarriorResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WarriorResources.resx</DependentUpon>
-    </Compile>
     <Compile Include="CharacterRelated\SkillRelated\SkillTree.cs" />
     <Compile Include="CharacterRelated\StatRelated\Experience.cs" />
     <Compile Include="CharacterRelated\Location.cs" />
@@ -98,10 +91,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CharacterRelated\SkillRelated\Skills\Warrior\WarriorResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>WarriorResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -117,6 +106,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

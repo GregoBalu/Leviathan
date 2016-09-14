@@ -2,56 +2,56 @@
 
 namespace Leviathan.Model.CharacterRelated.SkillRelated
 {
-    public abstract class Skill
+    public class Skill
     {
-        public abstract Boolean IsUnlocked
+        public Boolean IsUnlocked
         { get; set; }
 
-        public abstract Int32 LevelRequired();
+        public Int32 LevelRequired { get; set; }
 
-        public abstract Int32 AdditionalAttack();
+        public Int32 AdditionalAttack { get; set; }
 
-        public abstract Int32 AdditionalDefense();
+        public Int32 AdditionalDefense { get; set; }
 
-        public abstract Int32 AdditionalSpeed();
+        public Int32 AdditionalSpeed { get; set; }
 
-        public abstract Int32 AdditionalHealth();
+        public Int32 AdditionalHealth { get; set; }
 
-        public abstract Int32 Heal();
+        public Int32 Heal { get; set; }
 
-        public abstract Int32 AdditionalMana();
+        public Int32 AdditionalMana { get; set; }
 
-        public abstract Int32 Recover();
+        public Int32 Recover { get; set; }
 
-        public abstract Int32 Range();
+        public Int32 Range { get; set; }
 
-        public abstract String UseMessage();
+        public String UseMessage { get; set; }
 
-        public abstract String ToolTip();
+        public String ToolTip { get; set; }
 
-        public abstract String ImageName();
+        public String ImageName { get; set; }
 
-        public abstract String DisplayName();
+        public String DisplayName { get; set; }
 
-        public abstract Int32 Duration();
+        public Int32 Duration { get; set; }
 
-        public abstract Int32 IsOnCooldown 
+        public Int32 IsOnCooldown 
         { get; set; }
 
-        public abstract Int32 Cooldown();
+        public Int32 Cooldown { get; set; }
 
-        public abstract Int32 ManaCost();
+        public Int32 ManaCost { get; set; }
 
         #region Equality
 
         public static Boolean operator==(Skill a, Skill b)
         {
-            return a.DisplayName() == b.DisplayName();
+            return a.DisplayName == b.DisplayName;
         }
 
         public static Boolean operator!=(Skill a, Skill b)
         {
-            return a.DisplayName() != b.DisplayName();
+            return a.DisplayName != b.DisplayName;
         }
 
         public override bool Equals(object obj)
@@ -61,7 +61,7 @@ namespace Leviathan.Model.CharacterRelated.SkillRelated
 
         public override int GetHashCode()
         {
-            return DisplayName().GetHashCode();
+            return DisplayName.GetHashCode();
         }
 
         #endregion

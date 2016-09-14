@@ -50,9 +50,9 @@ namespace Leviathan.Editors.CharacterEditor
                 RaceComboBox.Items.Add(r.RaceName);
             }
             //Class
-            foreach (Profession p in Enum.GetValues(typeof(Profession)))
+            foreach (Profession p in ProfessionManager.getProfessions())
             {
-                ClassComboBox.Items.Add(p);
+                ClassComboBox.Items.Add(p.ProfessionName);
             }
 
             if (c == null)
@@ -79,12 +79,12 @@ namespace Leviathan.Editors.CharacterEditor
 
         private void RaceComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _char.Race = (Race)RaceComboBox.SelectedItem;
+            _char.Race = RaceManager.getRaces()[RaceComboBox.SelectedIndex];
         }
 
         private void ClassComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _char.Class = (Profession)ClassComboBox.SelectedItem;
+            _char.Class = ProfessionManager.getProfessions()[ClassComboBox.SelectedIndex];
         }
 
         private void HealthNumericUpDown_ValueChanged(object sender, EventArgs e)
