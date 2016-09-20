@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Leviathan.View.ViewModel
+namespace Leviathan.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {

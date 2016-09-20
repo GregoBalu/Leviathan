@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Leviathan.View.ViewModel
+namespace Leviathan.ViewModel
 {
     /// <summary>
     /// Nézetmodell ősosztály típusa.

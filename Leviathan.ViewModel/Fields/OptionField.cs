@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Leviathan.View.ViewModel.Fields
+namespace Leviathan.ViewModel.Fields
 {
     public class OptionField : ViewModelBase
     {

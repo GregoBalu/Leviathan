@@ -8,7 +8,7 @@ namespace Leviathan.Editors.Utils
 {
     public class IdEventArgs : EventArgs
     {
-        public Int32 Id { get; set; }
+        public Int32 Id { get; private set; }
 
         public IdEventArgs(Int32 id_) : base()
         {
@@ -18,11 +18,20 @@ namespace Leviathan.Editors.Utils
 
     public class StringEventArgs : EventArgs
     {
-        public String String { get; set; }
+        public String String { get; private set; }
 
         public StringEventArgs(String str) : base()
         {
             String = str;
+        }
+    }
+    public class SkillEventArgs : EventArgs
+    {
+        public Model.CharacterRelated.SkillRelated.Skill Skill { get; private set; }
+
+        public SkillEventArgs(Model.CharacterRelated.SkillRelated.Skill sk) : base()
+        {
+            Skill = sk;
         }
     }
 }

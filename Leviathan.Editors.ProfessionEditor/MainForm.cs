@@ -120,9 +120,24 @@ namespace Leviathan.Editors.ProfessionEditor
                     Model.CharacterRelated.ProfessionManager.Professions[(String)ProfessionListBox.SelectedItem];
 
                 SkillEditorForm sef = new SkillEditorForm(ri.SkillTree[SkillListBox.SelectedIndex]);
-
-                //TODO
+                sef.Ok += new EventHandler<Utils.SkillEventArgs>(SkillEditor_Ok);
+                sef.Cancel += new EventHandler(SkillEditor_Cancel);
+                sef.ShowDialog();
             }
+        }
+
+        private void SkillEditor_Ok(object sender, Utils.SkillEventArgs e)
+        {
+            Model.CharacterRelated.ProfessionManager.ProfessionInfo ri =
+                    Model.CharacterRelated.ProfessionManager.Professions[(String)ProfessionListBox.SelectedItem];
+
+            ri.SkillTree[SkillListBox.SelectedIndex] = e.Skill;
+
+            ((SkillEditorForm)sender).Close();
+        }
+        private void SkillEditor_Cancel(object sender, EventArgs e)
+        {
+            //Nothing
         }
 
         private void RemoveSkillButton_Click(object sender, EventArgs e)

@@ -4,10 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Leviathan.View.ViewModel.Fields
+namespace Leviathan.ViewModel.Fields
 {
-    public class ItemField : ViewModelBase
+    public class SkillField : ViewModelBase
     {
+
+        public Int32 Row { get; set; }
+
+        public Int32 Column { get; set; }
+
+        public String ImageName { get; set; }
+
+        public String Tooltip { get; set; }
+
         private String _name;
         public String Name
         {
@@ -25,25 +34,11 @@ namespace Leviathan.View.ViewModel.Fields
             }
         }
 
-        private String _imageName;
-        public String ImageName
-        {
-            get
-            {
-                return _imageName;
-            }
-            set
-            {
-                if (_imageName != value)
-                {
-                    _imageName = value;
-                    OnPropertyChanged("ImageName");
-                }
-            }
-        }
+        public String LevelRequired { get; set; }
 
-        public String Stats
-        { get; set; }
+        public Boolean IsLearnable { get; set; }
+
+        public DelegateCommand LearnCommand { get; set; }
 
         public DelegateCommand SelectedCommand { get; set; }
 

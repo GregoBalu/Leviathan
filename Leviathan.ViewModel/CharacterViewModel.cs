@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Leviathan;
 
-namespace Leviathan.View.ViewModel
+namespace Leviathan.ViewModel
 {
     public class CharacterViewModel : ViewModelBase
     {

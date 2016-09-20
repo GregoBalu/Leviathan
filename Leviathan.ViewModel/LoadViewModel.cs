@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Leviathan.View.ViewModel
+namespace Leviathan.ViewModel
 {
     public class LoadViewModel : ViewModelBase
     {
@@ -51,7 +51,9 @@ namespace Leviathan.View.ViewModel
 
         private void ReadSavedGames()
         {
-            String saveFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Leviathan.View.Properties.Resources.CharactersFolder;
+            String saveFolderPath = 
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
+                Properties.Resources.CharactersFolder;
 
             foreach(String filepath in System.IO.Directory.EnumerateFiles(saveFolderPath))
             {

@@ -83,7 +83,7 @@ namespace Leviathan.View
 
                 ChangeView(game);
             }
-            catch(Exceptions.LoadException ex)
+            catch(ViewModel.Exceptions.LoadException ex)
             {
                 ShowMessage(this, ex.Message);
                 Game_Quit(this, EventArgs.Empty);

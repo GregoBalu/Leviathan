@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leviathan.Editors.Utils", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leviathan.Editors.ProfessionEditor", "Leviathan.Editors.ProfessionEditor\Leviathan.Editors.ProfessionEditor.csproj", "{4AD83A40-4C9C-4537-A34A-D863A1F2E247}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leviathan.ViewModel", "Leviathan.ViewModel\Leviathan.ViewModel.csproj", "{B24E1838-8173-41E8-A8F1-88EE44AD8586}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{4AD83A40-4C9C-4537-A34A-D863A1F2E247}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AD83A40-4C9C-4537-A34A-D863A1F2E247}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AD83A40-4C9C-4537-A34A-D863A1F2E247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24E1838-8173-41E8-A8F1-88EE44AD8586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24E1838-8173-41E8-A8F1-88EE44AD8586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24E1838-8173-41E8-A8F1-88EE44AD8586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24E1838-8173-41E8-A8F1-88EE44AD8586}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

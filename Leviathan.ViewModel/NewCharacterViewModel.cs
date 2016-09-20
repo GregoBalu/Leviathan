@@ -4,8 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Leviathan;
 
-namespace Leviathan.View.ViewModel
+namespace Leviathan.ViewModel
 {
     public class NewCharacterViewModel : ViewModelBase
     {
@@ -64,8 +65,9 @@ namespace Leviathan.View.ViewModel
                     ch.BaseStats = Model.CharacterRelated.StatRelated.StatManager.Default(
                         new Model.CharacterRelated.Race(Race), Class);
 
-                    String folderpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Leviathan.View.Properties.Resources.CharactersFolder;
-                    String filepath = folderpath + Name + Leviathan.View.Properties.Resources.CharactersExtension;
+                    String folderpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
+                        Properties.Resources.CharactersFolder;
+                    String filepath = folderpath + Name + Properties.Resources.CharactersExtension;
                     if (!System.IO.Directory.Exists(folderpath))
                     {
                         System.IO.Directory.CreateDirectory(folderpath);

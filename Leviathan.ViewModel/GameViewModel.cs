@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Leviathan;
 
-namespace Leviathan.View.ViewModel
+namespace Leviathan.ViewModel
 {
     public class GameViewModel : ViewModelBase
     {

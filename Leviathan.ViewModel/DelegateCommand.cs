@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Leviathan.View.ViewModel
+namespace Leviathan.ViewModel
 {
     public class DelegateCommand : ICommand
     {
