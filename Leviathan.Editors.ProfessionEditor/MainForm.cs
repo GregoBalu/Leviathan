@@ -12,9 +12,14 @@ namespace Leviathan.Editors.ProfessionEditor
 {
     public partial class MainForm : Form
     {
+
+        private bool _dontSave;
+
         public MainForm()
         {
             InitializeComponent();
+
+            _dontSave = false;
 
             Model.CharacterRelated.ProfessionManager.loadProfessions();
 
@@ -30,6 +35,8 @@ namespace Leviathan.Editors.ProfessionEditor
         private void ShowProperties()
         {
             PropertiesGroupBox.Visible = true;
+
+            _dontSave = true;
 
             Model.CharacterRelated.ProfessionManager.ProfessionInfo pi = Model.CharacterRelated.ProfessionManager.Professions[(String)ProfessionListBox.SelectedItem];
 
@@ -54,6 +61,8 @@ namespace Leviathan.Editors.ProfessionEditor
             {
                 SkillListBox.Items.Add(sk.DisplayName);
             }
+
+            _dontSave = false;
         }
 
         private void AddProfessionButton_Click(object sender, EventArgs e)
@@ -163,6 +172,9 @@ namespace Leviathan.Editors.ProfessionEditor
 
         private void Stats_ValueChanged(object sender, EventArgs e)
         {
+            if (_dontSave)
+                return;
+
             Model.CharacterRelated.ProfessionManager.ProfessionInfo ri = 
                 Model.CharacterRelated.ProfessionManager.Professions[(String)ProfessionListBox.SelectedItem];
 
