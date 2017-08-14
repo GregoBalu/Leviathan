@@ -89,6 +89,7 @@ namespace Leviathan.Model.MapRelated
         public Map(bool createDefaultSegment = false)
         {
             _current = 0;
+            Region = new Region("Void");
             Segments = new List<Segment>();
             Variables = new List<string>();
             if (createDefaultSegment)

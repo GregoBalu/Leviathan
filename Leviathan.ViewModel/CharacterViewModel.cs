@@ -53,8 +53,8 @@ namespace Leviathan.ViewModel
         {
             Name = ch.Name;
             Level = ch.TotalStats.Experience.Level.ToString() + " lvl";
-            Race = ch.Race.ToString();
-            Class = ch.Class.ToString();
+            Race = ch.Race.RaceName;
+            Class = ch.Class.ProfessionName;
             Health = ch.TotalStats.Health.Current + "/" + ch.TotalStats.Health.Max;
             Mana = ch.TotalStats.Mana.Current + "/" + ch.TotalStats.Mana.Max;
             Attack = ch.TotalStats.Attack.ToString();

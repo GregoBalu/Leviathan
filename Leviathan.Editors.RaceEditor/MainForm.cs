@@ -12,9 +12,13 @@ namespace Leviathan.Editors.RaceEditor
 {
     public partial class MainForm : Form
     {
+        private bool _dontSave;
+
         public MainForm()
         {
             InitializeComponent();
+
+            _dontSave = true;
 
             Model.CharacterRelated.RaceManager.loadRaces();
 
@@ -25,11 +29,18 @@ namespace Leviathan.Editors.RaceEditor
             {
                 RaceListBox.Items.Add(key);
             }
+
+            if (RaceListBox.Items.Count > 0)
+                RaceListBox.SelectedIndex = 0;
+
+            _dontSave = false;
         }
 
         private void ShowProperties()
         {
             PropertiesGroupBox.Visible = true;
+
+            _dontSave = true;
 
             Model.CharacterRelated.RaceManager.RaceInfo ri = Model.CharacterRelated.RaceManager.Races[(String)RaceListBox.SelectedItem];
 
@@ -54,6 +65,8 @@ namespace Leviathan.Editors.RaceEditor
             {
                 ZonesListBox.Items.Add(zone);
             }
+
+            _dontSave = false;
         }
 
         private void AddRaceButton_Click(object sender, EventArgs e)
@@ -92,7 +105,7 @@ namespace Leviathan.Editors.RaceEditor
 
         private bool IsValidIndex()
         {
-            return RaceListBox.SelectedIndex > -1 && RaceListBox.SelectedIndex < RaceListBox.Items.Count;
+            return RaceListBox.SelectedIndex >= 0 && RaceListBox.SelectedIndex < RaceListBox.Items.Count;
         }
 
         private void AddZoneButton_Click(object sender, EventArgs e)
@@ -134,6 +147,9 @@ namespace Leviathan.Editors.RaceEditor
 
         private void Stats_ValueChanged(object sender, EventArgs e)
         {
+            if (_dontSave)
+                return;
+
             Model.CharacterRelated.RaceManager.RaceInfo ri = Model.CharacterRelated.RaceManager.Races[(String)RaceListBox.SelectedItem];
 
             ri.Start.Health.Current = ri.Start.Health.Max = Convert.ToInt32(HealthSetter.Value);

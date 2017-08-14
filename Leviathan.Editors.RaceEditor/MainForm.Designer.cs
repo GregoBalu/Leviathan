@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.RaceListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.AddRaceButton = new System.Windows.Forms.Button();
@@ -67,7 +68,7 @@
             this.ManaSetter = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.HealthSetter = new System.Windows.Forms.NumericUpDown();
-            this.ErrorProvider = new System.Windows.Forms.ErrorProvider();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.PropertiesGroupBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -241,6 +242,7 @@
             0,
             0,
             0});
+            this.LSpeedSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
             // 
             // label10
             // 
@@ -268,6 +270,9 @@
             0,
             0,
             0});
+            this.LDefenseMaxSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
+            this.LDefenseMaxSetter.Validating += new System.ComponentModel.CancelEventHandler(this.DefenseMaxSetter_Validating);
+            this.LDefenseMaxSetter.Validated += new System.EventHandler(this.RangeSetter_Validated);
             // 
             // label11
             // 
@@ -295,6 +300,9 @@
             0,
             0,
             0});
+            this.LDefenseMinSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
+            this.LDefenseMinSetter.Validating += new System.ComponentModel.CancelEventHandler(this.DefenseMinSetter_Validating);
+            this.LDefenseMinSetter.Validated += new System.EventHandler(this.RangeSetter_Validated);
             // 
             // label12
             // 
@@ -322,6 +330,9 @@
             0,
             0,
             0});
+            this.LAttackMaxSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
+            this.LAttackMaxSetter.Validating += new System.ComponentModel.CancelEventHandler(this.AttackMaxSetter_Validating);
+            this.LAttackMaxSetter.Validated += new System.EventHandler(this.RangeSetter_Validated);
             // 
             // label13
             // 
@@ -349,6 +360,9 @@
             0,
             0,
             0});
+            this.LAttackMinSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
+            this.LAttackMinSetter.Validating += new System.ComponentModel.CancelEventHandler(this.AttackMinSetter_Validating);
+            this.LAttackMinSetter.Validated += new System.EventHandler(this.RangeSetter_Validated);
             // 
             // label14
             // 
@@ -376,6 +390,7 @@
             0,
             0,
             0});
+            this.LManaSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
             // 
             // label15
             // 
@@ -403,6 +418,7 @@
             0,
             0,
             0});
+            this.LHealthSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
             // 
             // groupBox1
             // 
@@ -459,6 +475,7 @@
             0,
             0,
             0});
+            this.SpeedSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
             // 
             // label6
             // 
@@ -486,6 +503,7 @@
             0,
             0,
             0});
+            this.DefenseMaxSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
             this.DefenseMaxSetter.Validating += new System.ComponentModel.CancelEventHandler(this.DefenseMaxSetter_Validating);
             this.DefenseMaxSetter.Validated += new System.EventHandler(this.RangeSetter_Validated);
             // 
@@ -515,6 +533,7 @@
             0,
             0,
             0});
+            this.DefenseMinSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
             this.DefenseMinSetter.Validating += new System.ComponentModel.CancelEventHandler(this.DefenseMinSetter_Validating);
             this.DefenseMinSetter.Validated += new System.EventHandler(this.RangeSetter_Validated);
             // 
@@ -544,6 +563,7 @@
             0,
             0,
             0});
+            this.AttackMaxSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
             this.AttackMaxSetter.Validating += new System.ComponentModel.CancelEventHandler(this.AttackMaxSetter_Validating);
             this.AttackMaxSetter.Validated += new System.EventHandler(this.RangeSetter_Validated);
             // 
@@ -573,6 +593,7 @@
             0,
             0,
             0});
+            this.AttackMinSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
             this.AttackMinSetter.Validating += new System.ComponentModel.CancelEventHandler(this.AttackMinSetter_Validating);
             this.AttackMinSetter.Validated += new System.EventHandler(this.RangeSetter_Validated);
             // 
@@ -602,6 +623,7 @@
             0,
             0,
             0});
+            this.ManaSetter.ValueChanged += new System.EventHandler(this.Stats_ValueChanged);
             // 
             // label2
             // 

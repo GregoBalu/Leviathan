@@ -16,8 +16,8 @@ namespace Leviathan.ViewModel
         public String Name { get; set; }
         public ObservableCollection<String> Races {get; set;}
         public String Race { get; set; }
-        public ObservableCollection<Model.CharacterRelated.Profession> Classes { get; set; }
-        public Model.CharacterRelated.Profession Class { get; set; }
+        public ObservableCollection<String> Classes { get; set; }
+        public String Class { get; set; }
         public Int32 Alternative { get; set; }
 
         public DelegateCommand OkCommand { get; set; }
@@ -54,36 +54,47 @@ namespace Leviathan.ViewModel
         {
             OkCommand = new DelegateCommand(x =>
             {
-                if (Name != null && Name != "")
+                if (Name == null || Name == "")
                 {
-                    Model.CharacterRelated.Character ch = new Model.CharacterRelated.Character();
-                    ch.Name = Name;
-                    ch.Race = new Model.CharacterRelated.Race(Race);
-                    ch.Class = Class;
-                    ch.Location = Model.CharacterRelated.LocationManager.Start(
-                        new Model.CharacterRelated.Race(Race), Class, Alternative);
-                    ch.BaseStats = Model.CharacterRelated.StatRelated.StatManager.Default(
-                        new Model.CharacterRelated.Race(Race), Class);
+                    OnMessage("Name must be given!");
+                    return;
+                }
+                if (Class == null || Class == "")
+                {
+                    OnMessage("You must select a Class!");
+                    return;
+                }
+                if (Race == null || Race == "")
+                {
+                    OnMessage("You must select a Race!");
+                    return;
+                }
 
-                    String folderpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
-                        Properties.Resources.CharactersFolder;
-                    String filepath = folderpath + Name + Properties.Resources.CharactersExtension;
-                    if (!System.IO.Directory.Exists(folderpath))
-                    {
-                        System.IO.Directory.CreateDirectory(folderpath);
-                    }
-                    if (!System.IO.File.Exists(filepath))
-                    {
-                        FileHandler.FileHandler.Write(filepath, 
-                            ch, 
-                            typeof(Model.MapRelated.Map));
-                        OnOk(filepath);
-                    }
-                    else
-                        OnMessage("Character already exists with that name!");
+                Model.CharacterRelated.Character ch = new Model.CharacterRelated.Character();
+                ch.Name = Name;
+                ch.Race = new Model.CharacterRelated.Race(Race);
+                ch.Class = new Model.CharacterRelated.Profession(Class);
+                ch.Location = Model.CharacterRelated.LocationManager.Start(
+                    ch.Race, ch.Class, Alternative);
+                ch.BaseStats = Model.CharacterRelated.StatRelated.StatManager.Default(
+                    ch.Race, ch.Class);
+
+                String folderpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
+                    Properties.Resources.CharactersFolder;
+                String filepath = folderpath + Name + Properties.Resources.CharactersExtension;
+                if (!System.IO.Directory.Exists(folderpath))
+                {
+                    System.IO.Directory.CreateDirectory(folderpath);
+                }
+                if (!System.IO.File.Exists(filepath))
+                {
+                    FileHandler.FileHandler.Write(filepath, 
+                        ch, 
+                        typeof(Model.MapRelated.Map));
+                    OnOk(filepath);
                 }
                 else
-                    OnMessage("Values missing!");
+                    OnMessage("Character already exists with that name!");
             });
             CancelCommand = new DelegateCommand(x => OnCancel());
 
@@ -95,10 +106,10 @@ namespace Leviathan.ViewModel
             Race = Model.CharacterRelated.RaceManager.getRaces()[0].RaceName;
 
 
-            Classes = new ObservableCollection<Model.CharacterRelated.Profession>();
-            foreach (Model.CharacterRelated.Profession p in Enum.GetValues(typeof(Model.CharacterRelated.Profession)))
+            Classes = new ObservableCollection<String>();
+            foreach (Model.CharacterRelated.Profession p in Model.CharacterRelated.ProfessionManager.getProfessions())
             {
-                Classes.Add(p);
+                Classes.Add(p.ProfessionName);
             }
 
             Alternative = 0;
