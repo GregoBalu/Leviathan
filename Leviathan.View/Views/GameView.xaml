@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:Leviathan.View.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -11,6 +12,7 @@
                 <ResourceDictionary Source="../Styles/Buttons.xaml" />
                 <ResourceDictionary Source="../Styles/TextBlocks.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <converters:B64ToImageConverter x:Key="B64ToImageConverter" />
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -58,7 +60,7 @@
             <TextBlock Grid.Column="0" Style="{StaticResource GameTextBlock}"
                        Text="{Binding Content}" />
             <Image Grid.Column="1"
-                   Source="{Binding ImageName}"
+                   Source="{Binding ImageName, Converter={StaticResource B64ToImageConverter}}"
                    Margin="5,5,5,5" HorizontalAlignment="Center" 
                    VerticalAlignment="Center" />
         </Grid>

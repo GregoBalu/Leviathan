@@ -11,7 +11,7 @@ namespace Leviathan.ViewModel
         #region Properties
 
         public String Content { get; set; }
-        public String ImageName { get; set; }
+        public String ImageName { get; set;}
         public ObservableCollection<Fields.OptionField> Options { get; set; }
 
         public DelegateCommand NewCommand { get; private set; }
@@ -273,7 +273,7 @@ namespace Leviathan.ViewModel
         {
             Content = _map.Current.Content;
             OnPropertyChanged("Content");
-            ImageName = Properties.Resources.ImagesFolder + _map.Current.ImageName + Properties.Resources.ImagesExtension;
+            ImageName = _map.Current.ImageName;
             OnPropertyChanged("ImageName");
             Options.Clear();
             for(Int32 i = 0; i < _map.Current.Options.Count; ++i)
