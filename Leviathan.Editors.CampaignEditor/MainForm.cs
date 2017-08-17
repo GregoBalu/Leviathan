@@ -84,7 +84,18 @@ namespace Leviathan.Editors.CampaignEditor
         private void UpdateView()
         {
             ContentTextBox.Text = ResourceManager.Map.Segments[_current].Content;
-            PictureBox.ImageLocation = ResourceManager.Map.Segments[_current].ImageName;
+            //PictureBox.ImageLocation = ResourceManager.Map.Segments[_current].ImageName;
+            if (ResourceManager.Map.Segments[_current].ImageName == null ||
+                ResourceManager.Map.Segments[_current].ImageName == String.Empty)
+            {
+                PictureBox.Hide();
+            }
+            else
+            {
+                PictureBox.Image = Utils.ImageHandler.Base64ToImage(ResourceManager.Map.Segments[_current].ImageName);
+                PictureBox.Show();
+            }
+
             SegmentNumericUpDown.Value = _current;
 
             if(ResourceManager.Map.Segments[_current].IsSpecial 
@@ -299,6 +310,37 @@ namespace Leviathan.Editors.CampaignEditor
         private void SegmentSelector_Closed(object sender, FormClosedEventArgs e)
         {
             SegmentSelectorButton.Enabled = true;
+        }
+
+        private void RemoveImageButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Do you really want to remove the image from this segment?", 
+                "Remove Image", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                ResourceManager.Map.Segments[_current].ImageName = String.Empty;
+                UpdateView();
+            }
+        }
+
+        private void AddImageButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Title = "Select image to add";
+            ofd.Multiselect = false;
+            ofd.CheckFileExists = true;
+            DialogResult dr = ofd.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                System.Drawing.Image img = System.Drawing.Image.FromFile(ofd.FileName);
+
+                ResourceManager.Map.Segments[_current].ImageName =
+                    Utils.ImageHandler.ImageToBase64(img, System.Drawing.Imaging.ImageFormat.Png);
+                UpdateView();
+            }
         }
     }
 }

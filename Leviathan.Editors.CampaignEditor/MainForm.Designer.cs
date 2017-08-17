@@ -49,6 +49,8 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SegmentSelectorButton = new System.Windows.Forms.Button();
+            this.AddImageButton = new System.Windows.Forms.Button();
+            this.RemoveImageButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SegmentNumericUpDown)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -82,6 +84,7 @@
             this.PictureBox.Location = new System.Drawing.Point(448, 65);
             this.PictureBox.Name = "PictureBox";
             this.PictureBox.Size = new System.Drawing.Size(150, 150);
+            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBox.TabIndex = 5;
             this.PictureBox.TabStop = false;
             // 
@@ -248,11 +251,33 @@
             this.SegmentSelectorButton.UseVisualStyleBackColor = true;
             this.SegmentSelectorButton.Click += new System.EventHandler(this.SegmentSelectorButton_Click);
             // 
+            // AddImageButton
+            // 
+            this.AddImageButton.Location = new System.Drawing.Point(574, 36);
+            this.AddImageButton.Name = "AddImageButton";
+            this.AddImageButton.Size = new System.Drawing.Size(24, 23);
+            this.AddImageButton.TabIndex = 14;
+            this.AddImageButton.Text = "+";
+            this.AddImageButton.UseVisualStyleBackColor = true;
+            this.AddImageButton.Click += new System.EventHandler(this.AddImageButton_Click);
+            // 
+            // RemoveImageButton
+            // 
+            this.RemoveImageButton.Location = new System.Drawing.Point(544, 36);
+            this.RemoveImageButton.Name = "RemoveImageButton";
+            this.RemoveImageButton.Size = new System.Drawing.Size(24, 23);
+            this.RemoveImageButton.TabIndex = 15;
+            this.RemoveImageButton.Text = "-";
+            this.RemoveImageButton.UseVisualStyleBackColor = true;
+            this.RemoveImageButton.Click += new System.EventHandler(this.RemoveImageButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 498);
+            this.Controls.Add(this.RemoveImageButton);
+            this.Controls.Add(this.AddImageButton);
             this.Controls.Add(this.SegmentSelectorButton);
             this.Controls.Add(this.SpecialButton);
             this.Controls.Add(this.SegmentNumericUpDown);
@@ -299,6 +324,8 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Button SegmentSelectorButton;
+        private System.Windows.Forms.Button AddImageButton;
+        private System.Windows.Forms.Button RemoveImageButton;
     }
 }
 
