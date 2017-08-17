@@ -55,6 +55,7 @@ namespace Leviathan.ViewModel
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + 
                 Properties.Resources.CharactersFolder;
 
+            LoadGames.Clear();
             foreach(String filepath in System.IO.Directory.EnumerateFiles(saveFolderPath))
             {
                 string fileName = filepath.Substring(saveFolderPath.Length);
@@ -62,10 +63,18 @@ namespace Leviathan.ViewModel
                 {
                     CharacterName = fileName.Split('.')[0],
                     LastModifyDate = System.IO.File.GetLastWriteTime(filepath),
-                    SelectCommand = new DelegateCommand(x => OnFilePicked(filepath))
+                    SelectCommand = new DelegateCommand(x => OnFilePicked(filepath)),
+                    DeleteCommand = new DelegateCommand(x =>
+                    {
+                        System.IO.File.Delete(filepath);
+                        ReadSavedGames();
+                    })
                 });
             }
 
+            LoadGames.OrderByDescending(lgf => lgf.LastModifyDate);
+
+            OnPropertyChanged(nameof(LoadGames));
         }
 
     }

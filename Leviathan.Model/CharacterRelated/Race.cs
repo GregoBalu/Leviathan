@@ -15,5 +15,10 @@ namespace Leviathan.Model.CharacterRelated
             RaceName = r;
         }
 
+        public override string ToString()
+        {
+            return RaceName;
+        }
+
     }
 }

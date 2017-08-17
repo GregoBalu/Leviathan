@@ -42,16 +42,33 @@ namespace Leviathan.Model.CharacterRelated.SkillRelated
 
         public Int32 ManaCost { get; set; }
 
+        #region Ctors
+
+        public Skill()
+        {
+            DisplayName = "NEW";
+        }
+
+        public Skill(String dn)
+        {
+            DisplayName = dn;
+        }
+
+        #endregion
+
         #region Equality
 
         public static Boolean operator==(Skill a, Skill b)
         {
+            if ((a as Object) == null ||(b as Object) == null)
+                return false;
+
             return a.DisplayName == b.DisplayName;
         }
 
         public static Boolean operator!=(Skill a, Skill b)
         {
-            return a.DisplayName != b.DisplayName;
+            return !(a == b);
         }
 
         public override bool Equals(object obj)

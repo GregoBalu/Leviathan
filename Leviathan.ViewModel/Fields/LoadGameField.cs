@@ -13,5 +13,7 @@ namespace Leviathan.ViewModel.Fields
         public DateTime LastModifyDate { get; set; }
 
         public DelegateCommand SelectCommand { get; set; }
+
+        public DelegateCommand DeleteCommand { get; set; }
     }
 }

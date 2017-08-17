@@ -47,6 +47,9 @@ namespace Leviathan.Editors.BattleEditor
             InitializeComponent();
 
             _special = sp;
+            if (_special == null)
+                _special = new Special(Model.MapRelated.Specials.SpecialType.Battle);
+
             PropertiesGroupBox.Visible = false;
 
             UpdateView();
@@ -57,7 +60,7 @@ namespace Leviathan.Editors.BattleEditor
             EnemiesListBox.Items.Clear();
             foreach (Character ch in _special.Enemies)
             {
-                EnemiesListBox.Items.Add(ch);
+                EnemiesListBox.Items.Add(ch.ToString());
             }
         }
 
@@ -102,9 +105,9 @@ namespace Leviathan.Editors.BattleEditor
         {
             if(EnemiesListBox.SelectedItem != null)
             {
-                Int32 i = _special.Enemies.IndexOf((Character)EnemiesListBox.SelectedItem);
+                Int32 i = EnemiesListBox.SelectedIndex;
                 _special.Enemies.RemoveAt(i);
-                EnemiesListBox.Items.Remove(EnemiesListBox.SelectedItem);
+                EnemiesListBox.Items.RemoveAt(i);
                 _special.Distances.RemoveAt(i);
             }
         }
@@ -127,7 +130,7 @@ namespace Leviathan.Editors.BattleEditor
         {
             if (EnemiesListBox.SelectedItem != null)
             {
-                Character ch = (Character)EnemiesListBox.SelectedItem;
+                Character ch = _special.Enemies[EnemiesListBox.SelectedIndex];
                 CharacterEditor.MainForm mf = new CharacterEditor.MainForm(ch);
                 mf.Ok += new EventHandler(CharacterEditor_Edit_Ok);
                 mf.FormClosed += new FormClosedEventHandler(CharacterEditor_Closed);
@@ -145,7 +148,7 @@ namespace Leviathan.Editors.BattleEditor
 
             Int32 i = _special.Enemies.IndexOf((Character)EnemiesListBox.SelectedItem);
             _special.Enemies[i] = mf.Character;
-            EnemiesListBox.Items[i] = mf.Character;
+            EnemiesListBox.Items[i] = mf.Character.ToString();
         }
 
         private void DistanceNumericUpDown_ValueChanged(object sender, EventArgs e)

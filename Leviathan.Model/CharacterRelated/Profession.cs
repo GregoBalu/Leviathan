@@ -10,5 +10,10 @@ namespace Leviathan.Model.CharacterRelated
         {
             ProfessionName = val;
         }
+
+        public override string ToString()
+        {
+            return ProfessionName;
+        }
     }
 }

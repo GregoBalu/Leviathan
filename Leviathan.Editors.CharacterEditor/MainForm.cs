@@ -60,10 +60,10 @@ namespace Leviathan.Editors.CharacterEditor
             else
                 _char = c;
 
-            UpdateForm();
+            UpdateView();
         }
 
-        private void UpdateForm()
+        private void UpdateView()
         {
             RaceComboBox.SelectedItem = _char.Race;
             ClassComboBox.SelectedItem = _char.Class;

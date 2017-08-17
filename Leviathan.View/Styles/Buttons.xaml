@@ -12,4 +12,15 @@
         <Setter Property="MinWidth" Value="150" />
         <Setter Property="MinHeight" Value="30" />
     </Style>
+
+    <Style TargetType="Button" BasedOn="{StaticResource GameButton}" x:Key="LittleButton" >
+        <Setter Property="MaxWidth" Value="80" />
+        <Setter Property="MaxHeight" Value="20" />
+        <Setter Property="Padding" Value="5,1,5,1" />
+        <Setter Property="Margin" Value="0,2,2,2" />
+        <Setter Property="TextBlock.FontSize" Value="10" />
+        <Setter Property="TextBlock.FontWeight" Value="Bold" />
+        <Setter Property="Background" Value="WhiteSmoke" />
+        <Setter Property="BorderBrush" Value="Red" />
+    </Style>
 </ResourceDictionary>

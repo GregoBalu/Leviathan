@@ -445,13 +445,19 @@ namespace Leviathan.ViewModel
         {
             if(_target == -1)
             {
-                OnShowMessage("Select a target!");
+                String text = "Select a target!";
+                Battle_Content += text + Environment.NewLine;
+                OnPropertyChanged("Battle_Content");
+                OnShowMessage(text);
                 return;
             }
 
             if(_player.TotalStats.Mana.Current < sk.ManaCost)
             {
-                OnShowMessage("You need more mana to cast that!");
+                String text = "You need more mana to cast that!";
+                Battle_Content += text + Environment.NewLine;
+                OnPropertyChanged("Battle_Content");
+                OnShowMessage(text);
                 return;
             }
 
