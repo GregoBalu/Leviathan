@@ -281,9 +281,9 @@ namespace Leviathan.Editors.CampaignEditor
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Campaign Editor for Leviathan RPG Game\r\n" +
+            MessageBox.Show("Campaign Editor for Leviathan GameBook - RPG Game\r\n" +
                 "\r\n" +
-                "Created by: Balázs Gregorics, 2015-2016", "Credits");
+                "Created by: Balázs Gregorics, 2015-2017", "Credits");
         }
 
         private void SegmentSelectorButton_Click(object sender, EventArgs e)
