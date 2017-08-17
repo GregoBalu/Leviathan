@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leviathan.View", "Leviathan.View\Leviathan.View.csproj", "{8B4FF10B-4206-45CE-91EB-EE1AAE17511D}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leviathan.Editors.ProfessionEditor", "Leviathan.Editors.ProfessionEditor\Leviathan.Editors.ProfessionEditor.csproj", "{4AD83A40-4C9C-4537-A34A-D863A1F2E247}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leviathan.ViewModel", "Leviathan.ViewModel\Leviathan.ViewModel.csproj", "{B24E1838-8173-41E8-A8F1-88EE44AD8586}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leviathan.Editors.Frame", "Leviathan.Editors.Frame\Leviathan.Editors.Frame.csproj", "{E2BBECCB-9CE2-4F22-8894-BC3DEA2F879B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{B24E1838-8173-41E8-A8F1-88EE44AD8586}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B24E1838-8173-41E8-A8F1-88EE44AD8586}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B24E1838-8173-41E8-A8F1-88EE44AD8586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2BBECCB-9CE2-4F22-8894-BC3DEA2F879B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2BBECCB-9CE2-4F22-8894-BC3DEA2F879B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2BBECCB-9CE2-4F22-8894-BC3DEA2F879B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2BBECCB-9CE2-4F22-8894-BC3DEA2F879B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
