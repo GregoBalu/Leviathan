@@ -65,8 +65,9 @@ namespace Leviathan.Editors.CharacterEditor
 
         private void UpdateView()
         {
-            RaceComboBox.SelectedItem = _char.Race;
-            ClassComboBox.SelectedItem = _char.Class;
+            RaceComboBox.SelectedItem = _char.Race.RaceName;
+            ClassComboBox.SelectedItem = _char.Class.ProfessionName;
+            NameTextBox.Text = _char.Name;
             HealthNumericUpDown.Value = _char.BaseStats.Health.Max;
             ManaNumericUpDown.Value = _char.BaseStats.Mana.Max;
             LevelNumericUpDown.Value = _char.BaseStats.Experience.Level;
@@ -128,9 +129,12 @@ namespace Leviathan.Editors.CharacterEditor
         {
             _char.BaseStats.Experience.Level = Convert.ToInt32(LevelNumericUpDown.Value);
 
-            int temp = Convert.ToInt32(LevelNumericUpDown.Value);
+            //int temp = Convert.ToInt32(LevelNumericUpDown.Value);
         }
 
-
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _char.Name = NameTextBox.Text;
+        }
     }
 }

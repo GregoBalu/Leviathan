@@ -102,6 +102,10 @@
       <Project>{51821625-6b4a-4954-bc66-daf2fad97f8b}</Project>
       <Name>Leviathan.Editors.Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Leviathan.FileHandler\Leviathan.FileHandler.csproj">
+      <Project>{b9c6f959-0fd5-46e1-b6d6-aa0cb5254828}</Project>
+      <Name>Leviathan.FileHandler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Leviathan.Model\Leviathan.Model.csproj">
       <Project>{34a68919-909a-4f6b-acac-fd7e8ef02bf1}</Project>
       <Name>Leviathan.Model</Name>

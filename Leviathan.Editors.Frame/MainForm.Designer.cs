@@ -34,6 +34,12 @@
             this.WorkspaceTextBox = new System.Windows.Forms.TextBox();
             this.ChangeWorkspaceButton = new System.Windows.Forms.Button();
             this.CharacterButton = new System.Windows.Forms.Button();
+            this.LoadCharacterButton = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CampaignButton
@@ -97,19 +103,50 @@
             // 
             this.CharacterButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CharacterButton.Location = new System.Drawing.Point(12, 120);
+            this.CharacterButton.Location = new System.Drawing.Point(3, 3);
             this.CharacterButton.Name = "CharacterButton";
-            this.CharacterButton.Size = new System.Drawing.Size(220, 30);
+            this.CharacterButton.Size = new System.Drawing.Size(141, 30);
             this.CharacterButton.TabIndex = 5;
             this.CharacterButton.Text = "Character Editor";
             this.CharacterButton.UseVisualStyleBackColor = true;
+            this.CharacterButton.Click += new System.EventHandler(this.CharacterButton_Click);
+            // 
+            // LoadCharacterButton
+            // 
+            this.LoadCharacterButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoadCharacterButton.Location = new System.Drawing.Point(3, 3);
+            this.LoadCharacterButton.Name = "LoadCharacterButton";
+            this.LoadCharacterButton.Size = new System.Drawing.Size(63, 30);
+            this.LoadCharacterButton.TabIndex = 6;
+            this.LoadCharacterButton.Text = "Load";
+            this.LoadCharacterButton.UseVisualStyleBackColor = true;
+            this.LoadCharacterButton.Click += new System.EventHandler(this.LoadCharacterButton_Click);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(12, 120);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.CharacterButton);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.LoadCharacterButton);
+            this.splitContainer1.Size = new System.Drawing.Size(220, 36);
+            this.splitContainer1.SplitterDistance = 147;
+            this.splitContainer1.TabIndex = 7;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(244, 261);
-            this.Controls.Add(this.CharacterButton);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.ChangeWorkspaceButton);
             this.Controls.Add(this.WorkspaceTextBox);
             this.Controls.Add(this.ClassButton);
@@ -118,6 +155,10 @@
             this.MinimumSize = new System.Drawing.Size(260, 300);
             this.Name = "MainForm";
             this.Text = "Leviathan Editor";
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,6 +172,8 @@
         private System.Windows.Forms.TextBox WorkspaceTextBox;
         private System.Windows.Forms.Button ChangeWorkspaceButton;
         private System.Windows.Forms.Button CharacterButton;
+        private System.Windows.Forms.Button LoadCharacterButton;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
 
