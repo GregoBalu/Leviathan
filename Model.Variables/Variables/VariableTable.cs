@@ -10,6 +10,17 @@ namespace Model.Variables.Variables
 	{
 		public string Scope;
 		public string Name;
+
+		public VariableName(in string s, in string n)
+		{
+			Scope = s;
+			Name = n;
+		}
+
+		public override string ToString()
+		{
+			return Scope + "@" + Name;
+		}
 	}
 
 	public class VariableTable : Dictionary<VariableName, Variables.Variable >
@@ -25,5 +36,6 @@ namespace Model.Variables.Variables
 
 			return result;
 		}
+
 	}
 }

@@ -8,28 +8,56 @@ namespace Model.Variables.Statement
 {
 	public abstract class Assignment
 	{
-		protected Variables.Variable _assignee;
+		protected readonly Variables.VariableName _resultVarName;
 
-		protected Assignment(ref Variables.Variable res)
+		protected Assignment(in Variables.VariableName resName)
 		{
-			_assignee = res;
+			_resultVarName = resName;
 		}
 
-		public abstract void Evaluate();
+		protected bool Check(Variables.VariableTable varTable, Variables.VariableName varName)
+		{
+			return varTable.ContainsKey(varName);
+		}
+
+		public abstract Variables.VariableTable Evaluate(Variables.VariableTable varTable);
+	}
+
+	public class VariableTypeMismatchException : Exception
+	{
+		public VariableTypeMismatchException(Variables.VariableName assignee) : 
+			base("Types of result varaible " + assignee.ToString() + " and the result of the statement does not match")
+		{
+
+		}
 	}
 
 	public class VariableAssignment : Assignment
 	{
-		private readonly Variables.Variable _operandA;
+		private readonly Variables.VariableName _operandAVarName;
 
-		public VariableAssignment(ref Variables.Variable res, in Variables.Variable opA) : base(ref res)
+		public VariableAssignment(in Variables.VariableName resName, in Variables.VariableName opA) : base(resName)
 		{
-			_operandA = opA;
+			_operandAVarName = opA;
 		}
 
-		public override void Evaluate()
+		public override Variables.VariableTable Evaluate(Variables.VariableTable varTable)
 		{
-			_assignee = _operandA;
+			/*if (!Check(varTable, _resultVarName))
+			{
+				throw new UndefinedVariable(_resultVarName);
+			}*/
+			if (!Check(varTable, _operandAVarName))
+			{
+				throw new UndefinedVariable(_operandAVarName);
+			}
+			if(Check(varTable, _resultVarName) && varTable[_resultVarName].Type != varTable[_operandAVarName].Type)
+			{
+				throw new VariableTypeMismatchException(_resultVarName);
+			}
+
+			varTable[_resultVarName] = varTable[_operandAVarName];
+			return varTable;
 		}
 	}
 
@@ -37,14 +65,25 @@ namespace Model.Variables.Statement
 	{
 		private readonly Statement _statement;
 
-		public StatementAssignment(ref Variables.Variable res, in Statement s) : base(ref res)
+		public StatementAssignment(in Variables.VariableName resName, in Statement s) : base(resName)
 		{
 			_statement = s;
 		}
 
-		public override void Evaluate()
+		public override Variables.VariableTable Evaluate(Variables.VariableTable varTable)
 		{
-			_assignee = _statement.Evaluate();
+			/*if (!Check(varTable, _resultVarName))
+			{
+				throw new UndefinedVariable(_resultVarName);
+			}*/
+			Variables.Variable resVar = _statement.Evaluate(varTable);
+			if (Check(varTable, _resultVarName) && varTable[_resultVarName].Type != resVar.Type)
+			{
+				throw new VariableTypeMismatchException(_resultVarName);
+			}
+
+			varTable[_resultVarName] = resVar;
+			return varTable;
 		}
 	}
 }
