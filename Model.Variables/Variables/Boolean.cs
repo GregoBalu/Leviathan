@@ -10,7 +10,7 @@ namespace Model.Variables.Variables
 	{
 		private bool Value { get; set; }
 
-		public Boolean(bool val) : base()
+		public Boolean(bool val) : base(VariableType.Boolean)
 		{
 			Value = val;
 		}
@@ -22,20 +22,20 @@ namespace Model.Variables.Variables
 
 		public static implicit operator bool(Boolean b) => b.Value;
 
-		public override bool Equals(object? obj) => this.Equals(obj as Boolean);
-		public bool Equals(Boolean? other)
+		public override bool Equals(Variable rhs)
 		{
-			if (other is null)
-				return false;
-
-			if (Object.ReferenceEquals(this, other))
-				return true;
-
-			if (this.GetType() != other.GetType())
+			if (Type != rhs.Type)
 			{
 				return false;
 			}
 
+			if (Object.ReferenceEquals(this, rhs))
+				return true;
+
+			return Equals((Boolean)rhs);
+		}
+		public bool Equals(Boolean other)
+		{
 			return Value.Equals(other.Value);
 		}
 

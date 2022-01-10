@@ -8,6 +8,7 @@ namespace Model.Variables.Operators
 {
 	public abstract class Operator
 	{
+		public abstract HashSet<Variables.VariableType> SupportedReturnTypes();
 
 	}
 }

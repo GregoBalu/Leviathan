@@ -10,7 +10,7 @@ namespace Model.Variables.Variables
 	{
 		private Int64 Value { get; set; }
 
-		public Integer(Int64 val) : base()
+		public Integer(Int64 val) : base(VariableType.Integer)
 		{
 			Value = val;
 		}
@@ -70,20 +70,21 @@ namespace Model.Variables.Variables
 			return first.Value >= second.Value;
 		}
 
-		public override bool Equals(object? obj) => this.Equals(obj as Integer);
-		public bool Equals(Integer? other)
+		public override bool Equals(Variable rhs)
 		{
-			if (other is null)
-				return false;
-
-			if (Object.ReferenceEquals(this, other))
-				return true;
-
-			if (this.GetType() != other.GetType())
+			if (Type != rhs.Type)
 			{
 				return false;
 			}
 
+			if (Object.ReferenceEquals(this, rhs))
+				return true;
+
+			return Equals((Integer)rhs);
+		}
+
+		public bool Equals(Integer other)
+		{
 			return Value.Equals(other.Value);
 		}
 

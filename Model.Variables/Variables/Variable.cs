@@ -6,9 +6,22 @@ using System.Threading.Tasks;
 
 namespace Model.Variables.Variables
 {
+	public enum VariableType
+	{
+		Integer,
+		Float,
+		String,
+		Boolean
+	}
 
 	public abstract class Variable
 	{
+		public VariableType Type { get; private set; }
+
+		protected Variable(VariableType t)
+		{
+			Type = t;
+		}
 
 		public static bool operator ==(Variable lhs, Variable rhs)
 		{
@@ -22,13 +35,22 @@ namespace Model.Variables.Variables
 				// Only the left side is null.
 				return false;
 			}
-			// Equals handles case of null on right side.
+
 			return lhs.Equals(rhs);
 		}
 
 		public static bool operator !=(Variable lhs, Variable rhs) => !(lhs == rhs);
 
-		public abstract override bool Equals(object? obj);// => this.Equals(obj as Variable);
+		public override bool Equals(object? obj)
+		{
+			if (obj is Variable)
+			{
+				return Equals((Variable)obj);
+			}
+			return false;
+		}
+
+		public abstract bool Equals(Variable rhs);
 
 		public abstract override int GetHashCode();// => Value().GetHashCode();
 

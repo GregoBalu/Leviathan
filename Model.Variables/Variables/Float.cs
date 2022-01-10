@@ -10,7 +10,7 @@ namespace Model.Variables.Variables
 	{
 		private float Value { get; set; }
 
-		public Float(float val) : base()
+		public Float(float val) : base(VariableType.Float)
 		{
 			Value = val;
 		}
@@ -70,20 +70,20 @@ namespace Model.Variables.Variables
 			return first.Value >= second.Value;
 		}
 
-		public override bool Equals(object? obj) => this.Equals(obj as Float);
-		public bool Equals(Float? other)
+		public override bool Equals(Variable rhs)
 		{
-			if (other is null)
-				return false;
-
-			if (Object.ReferenceEquals(this, other))
-				return true;
-
-			if (this.GetType() != other.GetType())
+			if (Type != rhs.Type)
 			{
 				return false;
 			}
 
+			if (Object.ReferenceEquals(this, rhs))
+				return true;
+
+			return Equals((Float)rhs);
+		}
+		public bool Equals(Float other)
+		{
 			return Value.Equals(other.Value);
 		}
 
