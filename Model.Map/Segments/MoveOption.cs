@@ -11,17 +11,17 @@ namespace Model.Map.Segments
 
 	public class MoveOption
 	{
-		public Conditions Conditions { get; set; }
+		public Condition Condition { get; set; }
 
 		public string Content { get; set; }
 
 		public Int64 ToId { get; set; }
 
-		public MoveOption(String c, Int32 i, Conditions conds)
+		public MoveOption(String c, Int32 i, Condition cond)
 		{
 			Content = c;
 			ToId = i;
-			Conditions = conds;
+			Condition = cond;
 		}
 
 	}

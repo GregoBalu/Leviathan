@@ -27,24 +27,4 @@
 			return false;
 		}
 	}
-
-	public class Conditions
-	{
-		private List<Condition> _checks;
-
-		public Conditions(List<Condition> conds)
-		{
-			_checks = conds;
-		}
-
-		public bool Check(Variables.Variables.VariableTable varTable)
-		{
-			foreach (Condition cond in _checks)
-			{
-				if (!cond.Check(varTable))
-					return false;
-			}
-			return true;
-		}
-	}
 }

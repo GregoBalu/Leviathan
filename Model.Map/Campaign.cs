@@ -33,7 +33,7 @@ namespace Model.Map
 		{
 			if (id > 0 && id < Segments.Count)
 			{
-				return Current.Options.Any(opt => (opt.ToId == id) && opt.Conditions.Check(varTable));
+				return Current.Options.Any(opt => (opt.ToId == id) && opt.Condition.Check(varTable));
 			}
 			return false;
 		}
