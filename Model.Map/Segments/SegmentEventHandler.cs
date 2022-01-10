@@ -9,6 +9,14 @@ namespace Model.Map.Segments
 {
 	public abstract class SegmentEventHandler
 	{
+		public enum HandlerType { Script, GiveItem };
+		public HandlerType Type { get; private set;}
+
+		protected SegmentEventHandler(HandlerType t)
+		{
+			Type = t;
+		}
+
 		public abstract void Notify(ref Character.Character c);
 	}
 }
